@@ -1,0 +1,706 @@
+﻿
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BEAR WORLD | دنیای خرس‌ها</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark: #29251f;
+    --brown: #755337;
+    --gold: #c59b65;
+    --cream: #f5f0e7;
+    --white: #fffdf8;
+    --muted: #81786c;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.9;
+}
+
+header {
+    height: 82px;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 620px;
+    background:
+    radial-gradient(circle at 15% 20%, #8a69452a, transparent 35%),
+    linear-gradient(135deg, #30271e, #55412d);
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "BEAR";
+    position: absolute;
+    left: -30px;
+    bottom: -100px;
+    font-size: 250px;
+    font-weight: bold;
+    color: #ffffff08;
+    direction: ltr;
+}
+
+.hero-content {
+    max-width: 700px;
+    z-index: 1;
+    animation: appear 1.2s ease;
+}
+
+.tag {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 62px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #d8d0c5;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #211c16;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
+
+section {
+    padding: 85px 8%;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-head small {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-head h2 {
+    font-size: 35px;
+    color: var(--brown);
+    margin-top: 8px;
+}
+
+.section-head p {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+.about-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-design {
+    background: #ddd0bd;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-design::before {
+    content: "";
+    width: 220px;
+    height: 220px;
+    border: 1px solid #75533755;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.about-design::after {
+    content: "";
+    width: 170px;
+    height: 170px;
+    border: 1px solid #75533755;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.big-letter {
+    font-size: 110px;
+    color: var(--brown);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.about-text h3 {
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.about-text p {
+    color: #777064;
+    margin-bottom: 15px;
+}
+
+.species {
+    background: #eae2d5;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid #e5d9c7;
+    padding: 25px;
+    border-radius: 9px;
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px #44332117;
+    border-color: var(--gold);
+}
+
+.card-number {
+    font-size: 12px;
+    color: var(--gold);
+    direction: ltr;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+.card-symbol {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: var(--brown);
+    font-weight: bold;
+}
+
+.card h3 {
+    font-size: 19px;
+    color: var(--brown);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.card-label {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 4px 12px;
+    background: #eee6d9;
+    color: #725638;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.facts {
+    background: var(--dark);
+    color: white;
+}
+
+.facts .section-head h2 {
+    color: var(--gold);
+}
+
+.facts .section-head p {
+    color: #aaa;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fact {
+    border: 1px solid #ffffff25;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: .3s;
+}
+
+.fact:hover {
+    background: #ffffff0b;
+    transform: translateY(-5px);
+}
+
+.fact strong {
+    display: block;
+    font-size: 27px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.fact p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.protect {
+    text-align: center;
+    background: #ded8c9;
+}
+
+.protect p {
+    max-width: 750px;
+    margin: 20px auto 30px;
+    color: #6d675c;
+}
+
+.quote {
+    background: var(--brown);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.quote h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.quote p {
+    color: #e5d5c2;
+}
+
+footer {
+    background: #211e19;
+    color: #aaa;
+    padding: 40px 8%;
+    text-align: center;
+}
+
+footer h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+.top {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background: var(--gold);
+    color: #211c16;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    header {
+        height: auto;
+        padding: 18px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 480px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .about-box {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .fact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-head h2 {
+        font-size: 27px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">BEAR WORLD</div>
+
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#about">درباره خرس‌ها</a>
+        <a href="#species">گونه‌ها</a>
+        <a href="#facts">حقایق</a>
+        <a href="#protect">حفاظت</a>
+    </nav>
+</header>
+
+<main>
+
+<div class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">DISCOVER THE WILD</div>
+
+        <h1>
+            به دنیای
+            <span>خرس‌ها</span>
+            خوش آمدید
+        </h1>
+
+        <p>
+            کشف دنیای شگفت‌انگیز خرس‌ها،
+            از جنگل‌های انبوه تا سرزمین‌های یخی.
+        </p>
+
+        <a href="#species" class="btn">
+            شروع ماجراجویی
+        </a>
+    </div>
+</div>
+
+<section id="about">
+
+    <div class="section-head">
+        <small>ABOUT BEARS</small>
+        <h2>درباره خرس‌ها</h2>
+        <p>نگاهی عمیق‌تر به زندگی این موجودات شگفت‌انگیز</p>
+    </div>
+
+    <div class="about-box">
+
+        <div class="about-design">
+            <div class="big-letter">B</div>
+        </div>
+
+        <div class="about-text">
+            <h3>قدرت در کنار شگفتی</h3>
+
+            <p>
+                خرس‌ها از خانواده خرس‌سانان هستند
+                و از پستانداران شناخته‌شده جهان به شمار می‌روند.
+            </p>
+
+            <p>
+                این جانوران در محیط‌های متنوعی از
+                جنگل‌های گرمسیری تا مناطق قطبی زندگی می‌کنند.
+            </p>
+
+            <p>
+                هشت گونه زنده خرس وجود دارد که هر کدام
+                ویژگی‌های رفتاری، ظاهری و زیستگاهی خاص خود را دارند.
+            </p>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="species" id="species">
+
+    <div class="section-head">
+        <small>THE SPECIES</small>
+        <h2>گونه‌های خرس</h2>
+        <p>با هشت گونه زنده خرس در جهان آشنا شوید</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-number">01 / SPECIES</div>
+            <div class="card-symbol">01</div>
+            <h3>خرس قهوه‌ای</h3>
+            <p>
+                در جنگل‌ها و کوهستان‌های نیمکره شمالی
+                زندگی می‌کند و از غذاهای متنوعی تغذیه می‌کند.
+            </p>
+            <span class="card-label">جنگل و کوهستان</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">02 / SPECIES</div>
+            <div class="card-symbol">02</div>
+            <h3>خرس قطبی</h3>
+            <p>
+                از بزرگ‌ترین گوشت‌خواران خشکی‌زی است
+                و زیستگاه اصلی آن منطقه قطب شمال است.
+            </p>
+            <span class="card-label">مناطق قطبی</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">03 / SPECIES</div>
+            <div class="card-symbol">03</div>
+            <h3>پاندای غول‌پیکر</h3>
+            <p>
+                این خرس مشهور بیشتر از بامبو تغذیه می‌کند
+                و در چین زندگی می‌کند.
+            </p>
+            <span class="card-label">جنگل بامبو</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">04 / SPECIES</div>
+            <div class="card-symbol">04</div>
+            <h3>خرس سیاه آمریکایی</h3>
+            <p>
+                در آمریکای شمالی زندگی می‌کند
+                و معمولاً در جنگل‌ها یافت می‌شود.
+            </p>
+            <span class="card-label">آمریکای شمالی</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">05 / SPECIES</div>
+            <div class="card-symbol">05</div>
+            <h3>خرس سیاه آسیایی</h3>
+            <p>
+                در بخش‌هایی از آسیا زندگی می‌کند
+                و نشانه‌ای روشن روی سینه‌اش دارد.
+            </p>
+            <span class="card-label">آسیا</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">06 / SPECIES</div>
+            <div class="card-symbol">06</div>
+            <h3>خرس عینکی</h3>
+            <p>
+                گونه‌ای از خرس‌های آمریکای جنوبی
+                که در رشته‌کوه آند زندگی می‌کند.
+            </p>
+            <span class="card-label">کوه‌های آند</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">07 / SPECIES</div>
+            <div class="card-symbol">07</div>
+            <h3>خرس آفتاب</h3>
+            <p>
+                کوچک‌ترین گونه خرس جهان است
+                و در جنگل‌های جنوب شرق آسیا زندگی می‌کند.
+            </p>
+            <span class="card-label">جنگل گرمسیری</span>
+        </div>
+
+        <div class="card">
+            <div class="card-number">08 / SPECIES</div>
+            <div class="card-symbol">08</div>
+            <h3>خرس تنبل</h3>
+            <p>
+                در شبه‌قاره هند زندگی می‌کند
+                و به خوردن موریانه و حشرات علاقه دارد.
+            </p>
+            <span class="card-label">هند و اطراف آن</span>
+        </div>
+
+    </div>
+</section>
+
+<section class="facts" id="facts">
+
+    <div class="section-head">
+        <small>DID YOU KNOW?</small>
+        <h2>حقایق جالب</h2>
+        <p>چند حقیقت خواندنی درباره خرس‌ها</p>
+    </div>
+
+    <div class="fact-grid">
+
+        <div class="fact">
+            <strong>۸ گونه</strong>
+            <p>در حال حاضر هشت گونه زنده خرس در جهان وجود دارد.</p>
+        </div>
+
+        <div class="fact">
+            <strong>بویایی قوی</strong>
+            <p>خرس‌ها حس بویایی بسیار پیشرفته‌ای دارند.</p>
+        </div>
+
+        <div class="fact">
+            <strong>شناگران ماهر</strong>
+            <p>بسیاری از گونه‌های خرس شناگران توانمندی هستند.</p>
+        </div>
+
+        <div class="fact">
+            <strong>همه‌چیزخوار</strong>
+            <p>بسیاری از خرس‌ها از منابع غذایی گیاهی و جانوری استفاده می‌کنند.</p>
+        </div>
+
+        <div class="fact">
+            <strong>زیستگاه متنوع</strong>
+            <p>خرس‌ها در محیط‌های مختلفی از آسیا تا آمریکای شمالی زندگی می‌کنند.</p>
+        </div>
+
+        <div class="fact">
+            <strong>حس شنوایی</strong>
+            <p>خرس‌ها علاوه بر بویایی قوی، از شنوایی خوبی نیز برخوردارند.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="protect" id="protect">
+
+    <div class="section-head">
+        <small>PROTECT WILDLIFE</small>
+        <h2>از خرس‌ها محافظت کنیم</h2>
+    </div>
+
+    <p>
+        تخریب زیستگاه‌ها، تغییرات اقلیمی و شکار غیرقانونی
+        از تهدیدهای مهم برخی گونه‌های خرس هستند.
+        حفاظت از جنگل‌ها و محیط‌زیست به حفظ حیات این
+        موجودات ارزشمند کمک می‌کند.
+    </p>
+
+    <a href="#home" class="btn">بازگشت به بالا</a>
+
+</section>
+
+<div class="quote">
+    <h2>طبیعت بدون حیات‌وحش کامل نیست.</h2>
+    <p>Protect Nature. Protect Wildlife.</p>
+</div>
+
+</main>
+
+<footer>
+    <h2>BEAR WORLD</h2>
+    <p>سفری به دنیای شگفت‌انگیز خرس‌ها</p>
+    <p>طراحی و توسعه: <span>Pedram Ghamoushi</span></p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+<a href="#home" class="top">↑</a>
+
+</body>
+</html>
